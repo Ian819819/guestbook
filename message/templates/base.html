@@ -8,6 +8,10 @@
 <body>
     {% if user.is_authenticated %}
         歡迎 {{ user.username }} !!
+            <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="登出">
+        </form>
     {% else %}
         <a href="{% url 'login' %}">登入</a>
     {% endif %}
